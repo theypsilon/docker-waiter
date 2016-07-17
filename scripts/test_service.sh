@@ -16,6 +16,8 @@ cleanup() {
 	dc_test down
 }
 
+dc_test build
+
 cleanup || true
 trap cleanup EXIT
 

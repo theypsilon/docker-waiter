@@ -1,0 +1,12 @@
+version: '2'
+services:
+
+  service:
+    build:
+      context: ${SERVICE_FOLDER}
+      dockerfile: Dockerfile.service
+    restart: always
+    networks:
+      default:
+        aliases: 
+          - rest_host
