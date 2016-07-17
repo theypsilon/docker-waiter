@@ -8,4 +8,8 @@ set -euo pipefail
 echo
 echo "BUILD DONE"
 echo
-docker images --format '{{.Repository}}:{{.Tag}}' | grep waiter- | grep latest 
+
+docker images --format '{{.Repository}}:{{.Tag}}' \
+	| grep theypsilon/waiter- \
+	| grep -v theypsilon/waiter-base:latest \
+	| grep latest 
