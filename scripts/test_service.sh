@@ -12,6 +12,7 @@ dc_test() {
 }
 
 cleanup() {
+	dc_test kill
 	dc_test down
 }
 
