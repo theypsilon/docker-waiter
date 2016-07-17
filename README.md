@@ -11,7 +11,7 @@ All images will use a waiter script as default command that can be configured wi
 # IMAGES
 
 
-### theypsilon/docker-wait-for-elasticsearch:0.1.14
+### theypsilon/docker-wait-for-elasticsearch:0.1.15
 
 Configuration of elasticsearch would be done with following vars:
 
@@ -19,7 +19,7 @@ Configuration of elasticsearch would be done with following vars:
 * **ELASTICSEARCH_PORT** (mandatory)
 
 
-### theypsilon/docker-wait-for-mysql:0.1.14
+### theypsilon/docker-wait-for-mysql:0.1.15
 
 Configuration of mysql would be done with following vars:
 
@@ -27,6 +27,14 @@ Configuration of mysql would be done with following vars:
 * **MYSQL_PORT** (mandatory)
 * **MYSQL_USER** (mandatory)
 * **MYSQL_PASSWORD** (mandatory)
+
+
+### theypsilon/docker-wait-for-rest:0.1.15
+
+Configuration of rest would be done with following vars:
+
+* **HTTP_URL** (mandatory)
+* **HTTP_STATUS_CODE** (mandatory)
 
 
 
