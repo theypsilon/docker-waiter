@@ -6,5 +6,5 @@ source scripts/common.source
 
 # pushing
 for service in ${SERVICES}; do
-	docker push "${IMAGE_TEMPLATE/SERVICE/${service}}:${VERSION}"
+	docker push "${IMAGE_TEMPLATE/SERVICE/${service}}:${BRANCH}"
 done

@@ -2,7 +2,7 @@ set -euo pipefail
 
 DOCKER_REGISTRY=${DOCKER_REGISTRY:-theypsilon}
 
-readonly VERSION="$(git symbolic-ref -q --short HEAD || git describe --tags --exact-match)"
+readonly BRANCH="$(git symbolic-ref -q --short HEAD || git describe --tags --exact-match)"
 readonly IMAGE_TEMPLATE="${DOCKER_REGISTRY}/docker-wait-for-SERVICE"
 readonly SERVICES="$(cd services/; echo *)"
 
