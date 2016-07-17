@@ -1,19 +1,14 @@
 #!/usr/bin/env bash
 
-set -xeuo pipefail
+set -euo pipefail
 
 source scripts/common.source
 
-readonly MODIFIED_FILES=$(git ls-files -m)
-
-if [[ "${MODIFIED_FILES}" != "" ]] ; then
-	echo "ERROR: Following files are in a modified status, commit them or stash them."
-	echo "${MODIFIED_FILES}"
-	exit 1
-fi
 
 readonly CANDIDATE_VERSION=$(new_version "$@")
 
+echo "$CANDIDATE_VERSION"
+exit
 ./build.sh
 
 cp README.latest.md README.md

@@ -5,13 +5,12 @@ DOCKER_REGISTRY=${DOCKER_REGISTRY:-theypsilon}
 readonly VERSION="$(git symbolic-ref -q --short HEAD || git describe --tags --exact-match)"
 readonly IMAGE_TEMPLATE="${DOCKER_REGISTRY}/docker-wait-for-SERVICE"
 readonly SERVICES="$(cd services/; echo *)"
-readonly TAGGED_IMAGES_FILE="tagged-images.txt"
 
-
-new_version() {
+get_candidate_version() {
 	readonly LATEST_TAG=$(git describe --tag)
 	if ! [[ ${LATEST_TAG} =~ ([0-9]*).([0-9]*).([0-9]*) ]] ; then
 		echo "ERROR: last tag is wrong formatted"
+		exit 1
 	fi
 
 	MAJOR=${BASH_REMATCH[1]}
