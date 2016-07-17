@@ -54,4 +54,5 @@ git push origin ${VERSION}
 trap - EXIT
 
 git checkout latest
-git push origin latest || true
+git pull
+git push origin latest
