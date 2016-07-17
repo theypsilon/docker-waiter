@@ -1,2 +1,2 @@
-* ELASTICSEARCH_HOST (mandatory)
-* ELASTICSEARCH_PORT (mandatory)
+* **ELASTICSEARCH_HOST** (mandatory)
+* **ELASTICSEARCH_PORT** (mandatory)

@@ -8,5 +8,5 @@ The waiter can be configured for all those services through the following env va
 * WAITER_ATTEMPT_SLEEPTIME (mandatory): Amount of time the waiter will wait in seconds after an unsuccesful ping attempt.
 * WAITER_DEBUG (optional, default: false): If true, it will show in console the response of the ping command executed on attemps, otherwise it will be hidden.
 
-## We have following images ready to be used
+# IMAGES
 
