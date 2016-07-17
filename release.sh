@@ -2,7 +2,18 @@
 
 set -xeuo pipefail
 
-readonly CANDIDATE_VERSION=${1}
+readonly LATEST_TAG=$(git describe --tag)
+
+if [[ "${1:-}" == "" ]] && [[ ${LATEST_TAG} =~ ([0-9]*).([0-9]*).([0-9]*) ]] ; then
+	MAJOR=${BASH_REMATCH[1]}
+	MINOR=${BASH_REMATCH[2]}
+	PATCH=${BASH_REMATCH[3]}
+	PATCH=$(($PATCH + 1))
+	readonly CANDIDATE_VERSION="${MAJOR}.${MINOR}.${PATCH}"
+else
+	readonly CANDIDATE_VERSION=${1}
+fi
+
 readonly BACKUP_COMMIT=$(git rev-parse HEAD)
 
 readonly MODIFIED_FILES=$(git ls-files -m)

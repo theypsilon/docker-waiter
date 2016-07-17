@@ -14,3 +14,6 @@ for service in ${SERVICES}; do
 	echo "$(cat services/${service}/README.md)" >> README.latest.md
 	echo >> README.latest.md
 done
+
+echo >> README.latest.md
+echo "$(cat scripts/README.footer.md)" >> README.latest.md
