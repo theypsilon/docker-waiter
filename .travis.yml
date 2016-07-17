@@ -21,3 +21,4 @@ before_install:
 
 script:
   - ./build.sh
+  - ./scripts/pull_waiters.sh
