@@ -1,6 +1,6 @@
 # DOCKER WAIT-FOR
 
-This is image collection of utilities meant to introduce wait logic for a number of services.
+This is an image collection of utilities meant to introduce wait logic for a number of services.
 
 All images will use a waiter script as default command that can be configured with the following environment variables:
 
