@@ -1,4 +1,0 @@
-
-# LICENSE
-
-[LICENSE.md](LICENSE.md)

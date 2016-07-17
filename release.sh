@@ -26,9 +26,7 @@ trap cleanup EXIT
 
 ./build.sh
 
-cp README.latest.md README.md
-
-sed -i -e "s/latest/${VERSION}/g" README.md
+sed -i -e "s/$(cat version.txt)/${VERSION}/g" README.md
 echo "${VERSION}" > version.txt
 
 git add README.md version.txt
