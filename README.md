@@ -32,4 +32,4 @@ Configuration of mysql would be done with following vars:
 
 # LICENSE
 
-(LICENSE.md)
+[LICENSE.md](LICENSE.md)
