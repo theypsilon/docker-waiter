@@ -113,7 +113,7 @@ DONE!
 
 This repository accepts pull requests.
 
-More details at [CONTRIBUTING.md](CONTRIBUTING.md).
+More details at [CONTRIBUTING.md](CONTRIBUTING.md)
 
 # License
 
