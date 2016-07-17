@@ -11,7 +11,7 @@ The waiter can be configured for all those services through the following env va
 # IMAGES
 
 
-### theypsilon/docker-wait-for-elasticsearch:0.1.0
+### theypsilon/docker-wait-for-elasticsearch:0.1.1
 
 Configuration of elasticsearch would be done with following vars:
 
@@ -19,7 +19,7 @@ Configuration of elasticsearch would be done with following vars:
 * **ELASTICSEARCH_PORT** (mandatory)
 
 
-### theypsilon/docker-wait-for-mysql:0.1.0
+### theypsilon/docker-wait-for-mysql:0.1.1
 
 Configuration of mysql would be done with following vars:
 
