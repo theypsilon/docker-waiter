@@ -1,4 +1,4 @@
-FROM theypsilon/waiter-base:latest
+FROM waiter-base:latest
 COPY ping.sh ping.sh
 COPY waiter.sh waiter.sh 
 CMD ["bash", "waiter.sh"]

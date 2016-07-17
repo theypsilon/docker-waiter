@@ -8,7 +8,7 @@ source scripts/common.source
 for service in ${SERVICES}; do
 	(
 		cd services/${service}
-		docker build -t theypsilon/waiter-base:latest .
+		docker build -t waiter-base:latest .
 	)
 	cp services/${service}/ping.sh waiter/
 	(
