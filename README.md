@@ -105,7 +105,7 @@ $ docker run -it --rm --link elasticsearch_server:elasticsearch_server \
 DONE!
 ```
 
-**NOTE**: Notice that checking elasticsearch by looking the http status code is not sufficient, and you should use the image 'theypsilon/docker-waiter-elasticsearch:0.1.20' instead to know when the elasticsearch clusters are ready.
+**NOTE**: Notice that checking elasticsearch by looking the http status code is not sufficient, and you should use the image '**theypsilon/docker-waiter-elasticsearch:0.1.20**' instead to know when the elasticsearch clusters are ready.
 
 
 
