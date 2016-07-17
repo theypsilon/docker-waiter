@@ -33,4 +33,4 @@ esac
 readonly CANDIDATE_VERSION="${MAJOR}.${MINOR}.${PATCH}"
 
 echo "VERSION: ${CANDIDATE_VERSION}"
-echo "${CANDIDATE_VERSION}" >> candidate-version.txt
+echo "${CANDIDATE_VERSION}" > candidate-version.txt
