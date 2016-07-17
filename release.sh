@@ -34,22 +34,10 @@ trap error_handling EXIT
 
 git checkout ${CANDIDATE_VERSION}
 
-source scripts/common.source
-
-if [[ ${VERSION} != ${CANDIDATE_VERSION} ]] ; then
-	echo "ERROR: VERSION does not match CANDIDATE_VERSION."
-	exit 1
-fi
-
-if [[ ${VERSION} == "latest" ]] ; then
-	echo "ERROR: can't release latest, create a tag before running this command."
-	exit 1
-fi
-
 ./scripts/tag.sh
 ./scripts/push.sh
 
-git push origin ${VERSION}
+git push origin ${CANDIDATE_VERSION}
 
 trap - EXIT
 
