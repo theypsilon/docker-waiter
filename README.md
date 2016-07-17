@@ -1,4 +1,4 @@
-# Docker Waiter
+# Docker Waiter [![Build Status](https://travis-ci.org/theypsilon/docker-waiter.svg?branch=latest)](https://travis-ci.org/theypsilon/docker-waiter)
 
 This is an image collection of utilities meant to introduce wait logic for a number of services.
 
