@@ -4,6 +4,14 @@ set -euo pipefail
 
 source scripts/common.source
 
+git checkout latest
+
+readonly MODIFIED_FILES=$(git ls-files -m)
+if [[ "${MODIFIED_FILES}" != "" ]] ; then
+	echo "ERROR: Following files are in a modified status, commit them or stash them."
+	echo "${MODIFIED_FILES}"
+	exit 1
+fi
 
 readonly CANDIDATE_VERSION=$(get_candidate_version "$@")
 
