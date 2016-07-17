@@ -48,3 +48,7 @@ git pull
 git merge ${RELEASE_BRANCH}
 git branch -D ${RELEASE_BRANCH}
 git push origin latest
+git checkout ${BRANCH}
+git merge latest
+git push origin ${BRANCH}
+
