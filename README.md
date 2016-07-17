@@ -15,12 +15,16 @@ The waiter can be configured for all those services through the following env va
 
 Configuration of elasticsearch would be done with following vars:
 
-
+* **ELASTICSEARCH_HOST** (mandatory)
+* **ELASTICSEARCH_PORT** (mandatory)
 
 
 ### theypsilon/docker-wait-for-mysql:0.1.1
 
 Configuration of mysql would be done with following vars:
 
-
+* **MYSQL_HOST** (mandatory)
+* **MYSQL_PORT** (mandatory)
+* **MYSQL_USER** (mandatory)
+* **MYSQL_PASSWORD** (mandatory)
 
