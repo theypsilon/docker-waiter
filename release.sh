@@ -15,6 +15,7 @@ fi
 readonly CANDIDATE_VERSION=$(get_candidate_version "$@")
 readonly RELEASE_BRANCH=release-${CANDIDATE_VERSION}
 
+git branch -D ${RELEASE_BRANCH} || true
 git checkout HEAD -b ${RELEASE_BRANCH}
 
 ./build.sh
@@ -24,6 +25,8 @@ cp README.latest.md README.md
 sed -i -e "s/latest/${CANDIDATE_VERSION}/g" README.md
 git add README.md
 git commit -m "New version ${CANDIDATE_VERSION}" 
+
+git tag -d ${CANDIDATE_VERSION} || true
 git tag ${CANDIDATE_VERSION}
 
 error_handling() {
