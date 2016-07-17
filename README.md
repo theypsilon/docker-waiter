@@ -52,7 +52,7 @@ Configuration of the MySQL Waiter can be done through the following environment 
 * **MYSQL_PORT** (mandatory)
 * **MYSQL_USER** (mandatory)
 * **MYSQL_PASSWORD** (mandatory)
-* **MYSQL_QUERY** (optional, default value is 'select 1'): As long as the query produce an Error, the ping will be valid.
+* **MYSQL_QUERY** (optional, default value is `select 1`): As long as the query produce an Error, the ping will be valid.
 
 Example:
 ```
@@ -85,8 +85,8 @@ DONE!
 
 Configuration of the REST Waiter can be done through the following environment variables:
 
-* **HTTP_URL** (mandatory)
-* **HTTP_STATUS_CODE** (mandatory)
+* **HTTP_URL** (mandatory): URL of the shape `http://%SERVICE_DOMAIN:%SERVICE_PORT/route/ping`
+* **HTTP_STATUS_CODE** (mandatory): The expected HTTP STATUS CODE meaning that the resource behind the given HTTP URL is OK, typically **200**.
 
 Example:
 ```
