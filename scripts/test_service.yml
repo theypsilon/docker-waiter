@@ -1,0 +1,18 @@
+version: '2'
+services:
+
+  test_waiter_success:
+    image: ${IMAGE_NAME}:latest
+    env_file:
+      - ${SERVICE_FOLDER}/client.env
+      - ${SERVICE_FOLDER}/test_success.env
+    depends_on:
+      - service
+
+  test_waiter_failure:
+    image: ${IMAGE_NAME}:latest
+    env_file:
+      - ${SERVICE_FOLDER}/client.env
+      - ${SERVICE_FOLDER}/test_failure.env
+    depends_on:
+      - service

@@ -1,0 +1,15 @@
+version: '2'
+services:
+
+  service:
+    image: mysql:5.6.28
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=none
+      - MYSQL_USER=test
+      - MYSQL_PASSWORD=secret
+    networks:
+      default:
+        aliases: 
+          - mysql_host
