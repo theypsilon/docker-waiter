@@ -2,6 +2,8 @@
 
 set -xeuo pipefail
 
+source scripts/common.source
+
 readonly MODIFIED_FILES=$(git ls-files -m)
 
 if [[ "${MODIFIED_FILES}" != "" ]] ; then
@@ -10,9 +12,7 @@ if [[ "${MODIFIED_FILES}" != "" ]] ; then
 	exit 1
 fi
 
-./scripts/new_version.sh
-
-readonly CANDIDATE_VERSION=$(cat candidate-version.txt)
+readonly CANDIDATE_VERSION=$(new_version "$@")
 
 ./build.sh
 
