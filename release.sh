@@ -27,7 +27,7 @@ error_handling() {
 	echo "ROLLING BACK"
 	git tag -d ${CANDIDATE_VERSION}
 	git checkout latest
-	git reset HEAD~1
+	git reset HEAD~
 }
 
 trap error_handling EXIT
