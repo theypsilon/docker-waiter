@@ -2,6 +2,11 @@
 
 set -euo pipefail
 
+source scripts/common.source
+
+IMAGE_NAME=${IMAGE_TEMPLATE/SERVICE/${1}}
+SERVICE_FOLDER=services/${1}
+
 dc_test() {
 	IMAGE_NAME=${IMAGE_NAME} \
 	SERVICE_FOLDER=$(pwd)/${SERVICE_FOLDER} \

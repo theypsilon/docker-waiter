@@ -4,8 +4,7 @@ set -euo pipefail
 
 source scripts/common.source
 
-# testing
+# building
 for service in ${SERVICES}; do
-	./scripts/test_service.sh ${service}
+	./scripts/build_service.sh ${service}
 done
-
