@@ -48,14 +48,13 @@ fi
 
 ./scripts/tag.sh
 
-$asdfsd-asdfasd
+git push origin ${VERSION}
 
 while read image; do
 	docker push ${image}
 done < ${TAGGED_IMAGES_FILE}
 
-git push origin ${VERSION}
-git checkout latest
-git push origin latest
-
 trap - EXIT
+
+git checkout latest
+git push origin latest || true
