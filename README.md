@@ -109,11 +109,11 @@ DONE!
 
 **NOTE**: Notice that checking elasticsearch by looking the http status code is not sufficient, and you should use the image '**theypsilon/docker-waiter-elasticsearch:0.1.20**' instead to know when the elasticsearch clusters are ready.
 
-# Contribute
+# Contributing
 
 This repository accepts pull requests.
 
-More details at [CONTRIBUTE.md](CONTRIBUTE.md).
+More details at [CONTRIBUTING.md](CONTRIBUTING.md).
 
 # License
 

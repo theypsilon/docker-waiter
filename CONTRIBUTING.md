@@ -1,4 +1,4 @@
-# Contribute
+# Contributing
 
 This repository accepts pull requests.
 
