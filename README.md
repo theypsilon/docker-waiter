@@ -11,7 +11,7 @@ All images will use a [waiter script](scripts/waiter.sh) as default command that
 # IMAGES
 
 
-### theypsilon/docker-waiter-elasticsearch:0.1.19
+### theypsilon/docker-waiter-elasticsearch:0.1.20
 
 Configuration of elasticsearch would be done with following vars:
 
@@ -30,14 +30,14 @@ $ docker run -it --rm --link elasticsearch_server:elasticsearch_server \
 	-e WAITER_DEBUG=false \
 	-e WAITER_ATTEMPTS=20 \
 	-e WAITER_ATTEMPT_SLEEPTIME=1 \
-	theypsilon/docker-waiter-elasticsearch:0.1.19
+	theypsilon/docker-waiter-elasticsearch:0.1.20
 
 [WAITER] WAITER_ATTEMPTS: 20 | WAITER_ATTEMPT_SLEEPTIME: 1
 [WAITER] ....... OK
 ```
 
 
-### theypsilon/docker-waiter-mysql:0.1.19
+### theypsilon/docker-waiter-mysql:0.1.20
 
 Configuration of mysql would be done with following vars:
 
@@ -66,7 +66,7 @@ $ docker run -it --rm --link mysql_server:mysql_server \
 	-e WAITER_DEBUG=true \
 	-e WAITER_ATTEMPTS=20 \
 	-e WAITER_ATTEMPT_SLEEPTIME=1 \
-	theypsilon/docker-waiter-mysql:0.1.19 && echo DONE!
+	theypsilon/docker-waiter-mysql:0.1.20 && echo DONE!
 
 [WAITER] WAITER_ATTEMPTS: 20 | WAITER_ATTEMPT_SLEEPTIME: 1
 [WAITER] ...... OK
@@ -74,7 +74,7 @@ DONE!
 ```
 
 
-### theypsilon/docker-waiter-rest:0.1.19
+### theypsilon/docker-waiter-rest:0.1.20
 
 Configuration of rest would be done with following vars:
 
@@ -93,14 +93,14 @@ $ docker run -it --rm --link elasticsearch_server:elasticsearch_server \
 	-e WAITER_DEBUG=false \
 	-e WAITER_ATTEMPTS=20 \
 	-e WAITER_ATTEMPT_SLEEPTIME=1 \
-	theypsilon/docker-waiter-rest:0.1.19 && echo DONE!
+	theypsilon/docker-waiter-rest:0.1.20 && echo DONE!
 
 [WAITER] WAITER_ATTEMPTS: 20 | WAITER_ATTEMPT_SLEEPTIME: 1
 [WAITER] .. OK
 DONE!
 ```
 
-Notice that checking elasticsearch by looking the http status code is not sufficient, and you should use the image 'theypsilon/docker-waiter-elasticsearch:0.1.19' instead to know when the elasticsearch clusters are ready.
+Notice that checking elasticsearch by looking the http status code is not sufficient, and you should use the image 'theypsilon/docker-waiter-elasticsearch:0.1.20' instead to know when the elasticsearch clusters are ready.
 
 
 
