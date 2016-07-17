@@ -11,6 +11,6 @@ for service in ${SERVICES}; do
 	echo >> README.latest.md
 	echo "Configuration of ${service} would be done with following vars:">> README.latest.md
 	echo >> README.latest.md
-	echo "$(cat services/${service}/README.latest.md)" >> README.latest.md
+	echo "$(cat services/${service}/README.md)" >> README.latest.md
 	echo >> README.latest.md
 done
