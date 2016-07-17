@@ -5,10 +5,8 @@ set -euo pipefail
 source scripts/common.source
 
 
-readonly CANDIDATE_VERSION=$(new_version "$@")
+readonly CANDIDATE_VERSION=$(get_candidate_version "$@")
 
-echo "$CANDIDATE_VERSION"
-exit
 ./build.sh
 
 cp README.latest.md README.md
