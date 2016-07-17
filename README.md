@@ -1,8 +1,8 @@
 # Docker Waiter [![Build Status](https://travis-ci.org/theypsilon/docker-waiter.svg?branch=latest)](https://travis-ci.org/theypsilon/docker-waiter)
 
-This is an image collection of utilities meant to introduce wait logic for a number of services.
+This is an image collection of "waiters", images that are meant to be run as one-off processes, exiting succesfully when the matching service they are waiting for is *ready*. In order to provide wait logic for a heterogeneous number of services, every *waiter* here provides a definition of *ping* that is useful for its correspoding service.
 
-All images will use a [waiter script](scripts/waiter.sh) as default command that can be configured with the following environment variables:
+All waiter images will use a [waiter script](scripts/waiter.sh) as default command that can be configured with the following environment variables:
 
 * **WAITER_ATTEMPTS** (mandatory): Number of attempts the waiter will ping the service.
 * **WAITER_ATTEMPT_SLEEPTIME** (mandatory): Amount of time the waiter will wait in seconds after an unsuccesful ping attempt.
