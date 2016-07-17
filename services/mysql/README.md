@@ -21,5 +21,9 @@ docker run -it --rm --link mysql_server:mysql_server \
 	-e WAITER_DEBUG=true \
 	-e WAITER_ATTEMPTS=20 \
 	-e WAITER_ATTEMPT_SLEEPTIME=1 \
-	theypsilon/docker-wait-for-mysql:latest
+	theypsilon/docker-wait-for-mysql:latest && echo DONE!
+
+[WAITER] WAITER_ATTEMPTS: 20 | WAITER_ATTEMPT_SLEEPTIME: 1
+[WAITER] ...... OK
+DONE!
 ```

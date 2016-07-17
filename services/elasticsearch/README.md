@@ -3,20 +3,18 @@
 
 Example:
 ```
-docker run --name elasticsearch_server -d \
-	-e MYSQL_ROOT_PASSWORD=root \
-	-e MYSQL_USER=test \
-	-e MYSQL_PASSWORD=test \
-	-e MYSQL_DATABASE=test \
-	elasticsearch:5.6.28
+$ docker run --name elasticsearch_server -d elasticsearch:1.5.2
 
-docker run --rm --link elasticsearch_server:elasticsearch_server \
-	-e MYSQL_HOST=elasticsearch_server \
-	-e MYSQL_PORT=3306 \
-	-e MYSQL_USER=test \
-	-e MYSQL_PASSWORD=test \
-	-e WAITER_DEBUG=true \
+51321a23d283005344502b330b5249248f70f0c5ac4cee36fb6356a17f078034
+
+$ docker run -it --rm --link elasticsearch_server:elasticsearch_server \
+	-e ELASTICSEARCH_HOST=elasticsearch_server \
+	-e ELASTICSEARCH_PORT=9200 \
+	-e WAITER_DEBUG=false \
 	-e WAITER_ATTEMPTS=20 \
 	-e WAITER_ATTEMPT_SLEEPTIME=1 \
 	theypsilon/docker-wait-for-elasticsearch:latest
+
+[WAITER] WAITER_ATTEMPTS: 20 | WAITER_ATTEMPT_SLEEPTIME: 1
+[WAITER] ....... OK
 ```
