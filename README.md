@@ -10,15 +10,15 @@ All images will use a [waiter script](scripts/waiter.sh) as default command that
 
 # List of Images
 
-* **theypsilon/docker-waiter-mysql:0.1.20**
-* **theypsilon/docker-waiter-rest:0.1.20**
-* **theypsilon/docker-waiter-elasticsearch:0.1.20**
+* **theypsilon/docker-waiter-mysql:0.1.20**: Waits until MySQL is able to execute queries.
+* **theypsilon/docker-waiter-rest:0.1.20**: Waits until the expected HTTP STATUS CODE is returned from a given HTTP URL
+* **theypsilon/docker-waiter-elasticsearch:0.1.20**: Waits until Elastic Search server is up and the cluster health status is green or yellow.
 
 # How to use the Images
 
 ### theypsilon/docker-waiter-elasticsearch:0.1.20
 
-Configuration of elasticsearch would be done with following vars:
+Configuration of the Elastic Search Waiter can be done through the following environment variables:
 
 * **ELASTICSEARCH_HOST** (mandatory)
 * **ELASTICSEARCH_PORT** (mandatory)
@@ -44,7 +44,7 @@ $ docker run -it --rm --link elasticsearch_server:elasticsearch_server \
 
 ### theypsilon/docker-waiter-mysql:0.1.20
 
-Configuration of mysql would be done with following vars:
+Configuration of the MySQL Waiter can be done through the following environment variables:
 
 * **MYSQL_HOST** (mandatory)
 * **MYSQL_PORT** (mandatory)
@@ -81,7 +81,7 @@ DONE!
 
 ### theypsilon/docker-waiter-rest:0.1.20
 
-Configuration of rest would be done with following vars:
+Configuration of the REST Waiter can be done through the following environment variables:
 
 * **HTTP_URL** (mandatory)
 * **HTTP_STATUS_CODE** (mandatory)
@@ -105,7 +105,7 @@ $ docker run -it --rm --link elasticsearch_server:elasticsearch_server \
 DONE!
 ```
 
-Notice that checking elasticsearch by looking the http status code is not sufficient, and you should use the image 'theypsilon/docker-waiter-elasticsearch:0.1.20' instead to know when the elasticsearch clusters are ready.
+**NOTE**: Notice that checking elasticsearch by looking the http status code is not sufficient, and you should use the image 'theypsilon/docker-waiter-elasticsearch:0.1.20' instead to know when the elasticsearch clusters are ready.
 
 
 
