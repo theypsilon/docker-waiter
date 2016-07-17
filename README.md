@@ -1,4 +1,4 @@
-# DOCKER WAITER
+# Docker Waiter
 
 This is an image collection of utilities meant to introduce wait logic for a number of services.
 
@@ -8,8 +8,13 @@ All images will use a [waiter script](scripts/waiter.sh) as default command that
 * **WAITER_ATTEMPT_SLEEPTIME** (mandatory): Amount of time the waiter will wait in seconds after an unsuccesful ping attempt.
 * **WAITER_DEBUG** (optional, default: false): If true, it will show in console the response of the ping command executed on attemps, otherwise it will be hidden.
 
-# IMAGES
+# Images
 
+[https://github.com/theypsilon/docker-waiter#theypsilondocker-waiter-mysql0120](theypsilon/docker-waiter-mysql:0.1.20)
+[https://github.com/theypsilon/docker-waiter#theypsilondocker-waiter-rest0120](theypsilon/docker-waiter-rest:0.1.20)
+[https://github.com/theypsilon/docker-waiter#theypsilondocker-waiter-elasticsearch0120](theypsilon/docker-waiter-elasticsearch:0.1.20)
+
+# How to use the images
 
 ### theypsilon/docker-waiter-elasticsearch:0.1.20
 
@@ -104,6 +109,6 @@ Notice that checking elasticsearch by looking the http status code is not suffic
 
 
 
-# LICENSE
+# License
 
 [LICENSE.md](LICENSE.md)
