@@ -10,9 +10,9 @@ All images will use a [waiter script](scripts/waiter.sh) as default command that
 
 # Images
 
-[https://github.com/theypsilon/docker-waiter#theypsilondocker-waiter-mysql0120](theypsilon/docker-waiter-mysql:0.1.20)
-[https://github.com/theypsilon/docker-waiter#theypsilondocker-waiter-rest0120](theypsilon/docker-waiter-rest:0.1.20)
-[https://github.com/theypsilon/docker-waiter#theypsilondocker-waiter-elasticsearch0120](theypsilon/docker-waiter-elasticsearch:0.1.20)
+* [https://github.com/theypsilon/docker-waiter#theypsilondocker-waiter-mysql0120](theypsilon/docker-waiter-mysql:0.1.20)
+* [https://github.com/theypsilon/docker-waiter#theypsilondocker-waiter-rest0120](theypsilon/docker-waiter-rest:0.1.20)
+* [https://github.com/theypsilon/docker-waiter#theypsilondocker-waiter-elasticsearch0120](theypsilon/docker-waiter-elasticsearch:0.1.20)
 
 # How to use the images
 
