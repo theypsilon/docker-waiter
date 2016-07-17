@@ -25,9 +25,10 @@ git commit -m "New version ${CANDIDATE_VERSION}"
 git tag ${CANDIDATE_VERSION}
 
 error_handling() {
+	echo "ROLLING BACK"
 	git tag -d ${CANDIDATE_VERSION}
 	git checkout latest
-	git reset HEAD ${BACKUP_COMMIT}
+	git reset -f HEAD ${BACKUP_COMMIT}
 }
 
 trap error_handling EXIT
@@ -47,12 +48,9 @@ if [[ ${VERSION} == "latest" ]] ; then
 fi
 
 ./scripts/tag.sh
+./scripts/push.sh
 
 git push origin ${VERSION}
-
-while read image; do
-	docker push ${image}
-done < ${TAGGED_IMAGES_FILE}
 
 trap - EXIT
 
