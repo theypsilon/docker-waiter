@@ -44,7 +44,7 @@ echo "VERSION: ${CANDIDATE_VERSION}"
 
 readonly BACKUP_COMMIT=$(git rev-parse HEAD)
 
-./build.sh
+#./build.sh
 
 mv README.latest.md README.md
 
