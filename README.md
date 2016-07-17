@@ -8,13 +8,13 @@ All images will use a [waiter script](scripts/waiter.sh) as default command that
 * **WAITER_ATTEMPT_SLEEPTIME** (mandatory): Amount of time the waiter will wait in seconds after an unsuccesful ping attempt.
 * **WAITER_DEBUG** (optional, default: false): If true, it will show in console the response of the ping command executed on attemps, otherwise it will be hidden.
 
-# Images
+# List of Images
 
-* theypsilon/docker-waiter-mysql:0.1.20
-* theypsilon/docker-waiter-rest:0.1.20
-* theypsilon/docker-waiter-elasticsearch:0.1.20
+* **theypsilon/docker-waiter-mysql:0.1.20**
+* **theypsilon/docker-waiter-rest:0.1.20**
+* **theypsilon/docker-waiter-elasticsearch:0.1.20**
 
-# How to use the images
+# How to use the Images
 
 ### theypsilon/docker-waiter-elasticsearch:0.1.20
 
