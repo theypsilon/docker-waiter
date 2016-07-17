@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -xeuo pipefail
 
 readonly MODIFIED_FILES=$(git ls-files -m)
 
@@ -68,17 +68,18 @@ git tag ${CANDIDATE_VERSION}
 
 	./scripts/tag.sh
 
+	$asdfsd
+
 	while read image; do
 		docker push ${image}
 	done < ${TAGGED_IMAGES_FILE}
 
 	git push origin ${VERSION}
+	git checkout latest
+	git push origin latest
 
 ) || (
 	git tag -d ${CANDIDATE_VERSION}
 	git checkout latest
 	git reset HEAD~1
 )
-
-git checkout latest
-git push origin latest
