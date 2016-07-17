@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -xeuo pipefail
 
 readonly CANDIDATE_VERSION=${1}
 readonly BACKUP_COMMIT=$(git rev-parse HEAD)
