@@ -13,7 +13,6 @@ fi
 ./scripts/new_version.sh
 
 readonly CANDIDATE_VERSION=$(cat candidate-version.txt)
-readonly BACKUP_COMMIT=$(git rev-parse HEAD)
 
 ./build.sh
 
@@ -28,7 +27,7 @@ error_handling() {
 	echo "ROLLING BACK"
 	git tag -d ${CANDIDATE_VERSION}
 	git checkout latest
-	git reset -f HEAD ${BACKUP_COMMIT}
+	git reset HEAD~1
 }
 
 trap error_handling EXIT
