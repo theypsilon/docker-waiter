@@ -2,18 +2,23 @@
 
 set -xeuo pipefail
 
+readonly RELEASE_TYPE=${1:-"PATCH"}
 readonly LATEST_TAG=$(git describe --tag)
 
-if [[ "${1:-}" == "" ]] && [[ ${LATEST_TAG} =~ ([0-9]*).([0-9]*).([0-9]*) ]] ; then
-	MAJOR=${BASH_REMATCH[1]}
-	MINOR=${BASH_REMATCH[2]}
-	PATCH=${BASH_REMATCH[3]}
-	PATCH=$(($PATCH + 1))
-	readonly CANDIDATE_VERSION="${MAJOR}.${MINOR}.${PATCH}"
-else
-	readonly CANDIDATE_VERSION=${1}
+if ! [[ ${LATEST_TAG} =~ ([0-9]*).([0-9]*).([0-9]*) ]] ; then
+	echo "ERROR: last tag is wrong formatted"
 fi
 
+MAJOR=${BASH_REMATCH[1]}
+MINOR=${BASH_REMATCH[2]}
+PATCH=${BASH_REMATCH[3]}
+echo $RELEASE_TYPE
+eval $RELEASE_TYPE=$(( + 1))
+readonly CANDIDATE_VERSION="${MAJOR}.${MINOR}.${PATCH}"
+
+echo ${CANDIDATE_VERSION}
+
+exit
 readonly BACKUP_COMMIT=$(git rev-parse HEAD)
 
 readonly MODIFIED_FILES=$(git ls-files -m)
