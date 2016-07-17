@@ -4,16 +4,15 @@ set -euo pipefail
 
 source scripts/common.source
 
-
+readonly VERSION=$(get_candidate_version "$@")
+readonly RELEASE_BRANCH=release-${VERSION}
 readonly MODIFIED_FILES=$(git ls-files -m)
+
 if [[ "${MODIFIED_FILES}" != "" ]] ; then
 	echo "ERROR: Following files are in a modified status, commit them or stash them."
 	echo "${MODIFIED_FILES}"
 	exit 1
 fi
-
-readonly VERSION=$(get_candidate_version "$@")
-readonly RELEASE_BRANCH=release-${VERSION}
 
 git checkout ${BRANCH} -b ${RELEASE_BRANCH}
 
