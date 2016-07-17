@@ -7,7 +7,7 @@ readonly IMAGE_TEMPLATE="${DOCKER_REGISTRY}/docker-wait-for-SERVICE"
 readonly SERVICES="$(cd services/; echo *)"
 
 get_candidate_version() {
-	readonly LATEST_TAG=$(git describe --tag)
+	readonly LATEST_TAG=$(cat version.txt)
 	if ! [[ ${LATEST_TAG} =~ ([0-9]*).([0-9]*).([0-9]*) ]] ; then
 		echo "ERROR: last tag is wrong formatted"
 		exit 1

@@ -29,17 +29,19 @@ trap cleanup EXIT
 cp README.latest.md README.md
 
 sed -i -e "s/latest/${VERSION}/g" README.md
-git add README.md
+echo "${VERSION}" > version.txt
+git add README.md version.txt
+
 git commit -m "New version ${VERSION}" 
 
 git tag -a ${VERSION} -m "Version ${VERSION}"
 
 git checkout ${VERSION}
 
+git push origin ${VERSION}
+
 ./scripts/tag.sh
 ./scripts/push.sh
-
-git push origin ${VERSION}
 
 git checkout latest
 git pull
