@@ -30,8 +30,8 @@ cp README.latest.md README.md
 
 sed -i -e "s/latest/${VERSION}/g" README.md
 echo "${VERSION}" > version.txt
-git add README.md version.txt
 
+git add README.md version.txt
 git commit -m "New version ${VERSION}" 
 
 git tag -a ${VERSION} -m "Version ${VERSION}"
@@ -48,3 +48,4 @@ git pull
 git merge ${RELEASE_BRANCH}
 git branch -D ${RELEASE_BRANCH}
 git push origin latest
+git checkout ${BRANCH}
