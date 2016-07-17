@@ -4,7 +4,6 @@ set -euo pipefail
 
 source scripts/common.source
 
-git checkout latest
 
 readonly MODIFIED_FILES=$(git ls-files -m)
 if [[ "${MODIFIED_FILES}" != "" ]] ; then
@@ -14,6 +13,9 @@ if [[ "${MODIFIED_FILES}" != "" ]] ; then
 fi
 
 readonly CANDIDATE_VERSION=$(get_candidate_version "$@")
+readonly RELEASE_BRANCH=release-${CANDIDATE_VERSION}
+
+git checkout HEAD -b ${RELEASE_BRANCH}
 
 ./build.sh
 
@@ -28,7 +30,7 @@ error_handling() {
 	echo "ROLLING BACK"
 	git tag -d ${CANDIDATE_VERSION}
 	git checkout latest
-	git reset --hard HEAD~1
+	git branch -D ${RELEASE_BRANCH}
 }
 
 trap error_handling EXIT
@@ -44,4 +46,6 @@ trap - EXIT
 
 git checkout latest
 git pull
+git merge ${RELEASE_BRANCH}
+git branch -D ${RELEASE_BRANCH}
 git push origin latest
