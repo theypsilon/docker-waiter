@@ -4,7 +4,7 @@ This is an image collection of "waiters", images that are meant to be run as one
 
 In order to provide wait logic for a heterogeneous number of services, every *waiter* here provides a definition of *ping* that is useful for its correspoding service.
 
-All waiter images will use a [waiter script](scripts/waiter.sh) as default command that can be configured with the following environment variables:
+All waiter images will use exactly the same [waiter script](scripts/waiter.sh) as default command that can be configured with the following environment variables:
 
 * **WAITER_ATTEMPTS** (mandatory): Number of attempts the waiter will ping the service.
 * **WAITER_ATTEMPT_SLEEPTIME** (mandatory): Amount of time the waiter will wait in seconds after an unsuccesful ping attempt.
