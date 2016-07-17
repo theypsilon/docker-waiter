@@ -46,7 +46,6 @@ git push origin ${VERSION}
 git checkout latest
 git pull
 git merge ${RELEASE_BRANCH}
-git branch -D ${RELEASE_BRANCH}
 git push origin latest
 git checkout ${BRANCH}
 git merge latest
