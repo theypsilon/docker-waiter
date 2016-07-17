@@ -68,7 +68,7 @@ git tag ${CANDIDATE_VERSION}
 
 	./scripts/tag.sh
 
-	$asdfsd
+	$asdfsd-asdfasd
 
 	while read image; do
 		docker push ${image}
@@ -81,5 +81,5 @@ git tag ${CANDIDATE_VERSION}
 ) || (
 	git tag -d ${CANDIDATE_VERSION}
 	git checkout latest
-	git reset HEAD~1
+	git reset HEAD ${BACKUP_COMMIT}
 )
