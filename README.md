@@ -11,7 +11,7 @@ All images will use a [waiter script](scripts/waiter.sh) as default command that
 # IMAGES
 
 
-### theypsilon/docker-wait-for-elasticsearch:0.1.17
+### theypsilon/docker-wait-for-elasticsearch:0.1.18
 
 Configuration of elasticsearch would be done with following vars:
 
@@ -30,14 +30,14 @@ $ docker run -it --rm --link elasticsearch_server:elasticsearch_server \
 	-e WAITER_DEBUG=false \
 	-e WAITER_ATTEMPTS=20 \
 	-e WAITER_ATTEMPT_SLEEPTIME=1 \
-	theypsilon/docker-wait-for-elasticsearch:0.1.17
+	theypsilon/docker-wait-for-elasticsearch:0.1.18
 
 [WAITER] WAITER_ATTEMPTS: 20 | WAITER_ATTEMPT_SLEEPTIME: 1
 [WAITER] ....... OK
 ```
 
 
-### theypsilon/docker-wait-for-mysql:0.1.17
+### theypsilon/docker-wait-for-mysql:0.1.18
 
 Configuration of mysql would be done with following vars:
 
@@ -49,14 +49,16 @@ Configuration of mysql would be done with following vars:
 
 Example:
 ```
-docker run --name mysql_server -d \
+$ docker run --name mysql_server -d \
 	-e MYSQL_ROOT_PASSWORD=root \
 	-e MYSQL_USER=test \
 	-e MYSQL_PASSWORD=test \
 	-e MYSQL_DATABASE=test \
 	mysql:5.6.28
 
-docker run -it --rm --link mysql_server:mysql_server \
+c03b737671099e1454e65e03cb1d4d1c05fdb4ddfd7bf725112d495ad637605a
+
+$ docker run -it --rm --link mysql_server:mysql_server \
 	-e MYSQL_HOST=mysql_server \
 	-e MYSQL_PORT=3306 \
 	-e MYSQL_USER=test \
@@ -64,7 +66,7 @@ docker run -it --rm --link mysql_server:mysql_server \
 	-e WAITER_DEBUG=true \
 	-e WAITER_ATTEMPTS=20 \
 	-e WAITER_ATTEMPT_SLEEPTIME=1 \
-	theypsilon/docker-wait-for-mysql:0.1.17 && echo DONE!
+	theypsilon/docker-wait-for-mysql:0.1.18 && echo DONE!
 
 [WAITER] WAITER_ATTEMPTS: 20 | WAITER_ATTEMPT_SLEEPTIME: 1
 [WAITER] ...... OK
@@ -72,7 +74,7 @@ DONE!
 ```
 
 
-### theypsilon/docker-wait-for-rest:0.1.17
+### theypsilon/docker-wait-for-rest:0.1.18
 
 Configuration of rest would be done with following vars:
 
@@ -91,14 +93,14 @@ $ docker run -it --rm --link elasticsearch_server:elasticsearch_server \
 	-e WAITER_DEBUG=false \
 	-e WAITER_ATTEMPTS=20 \
 	-e WAITER_ATTEMPT_SLEEPTIME=1 \
-	theypsilon/docker-wait-for-rest:0.1.17 && echo DONE!
+	theypsilon/docker-wait-for-rest:0.1.18 && echo DONE!
 
 [WAITER] WAITER_ATTEMPTS: 20 | WAITER_ATTEMPT_SLEEPTIME: 1
 [WAITER] .. OK
 DONE!
 ```
 
-Notice that checking elasticsearch by looking the http status code is not sufficient, and you should use the image 'theypsilon/docker-wait-for-elasticsearch:0.1.17' instead to know when the elasticsearch clusters are ready.
+Notice that checking elasticsearch by looking the http status code is not sufficient, and you should use the image 'theypsilon/docker-wait-for-elasticsearch:0.1.18' instead to know when the elasticsearch clusters are ready.
 
 
 
