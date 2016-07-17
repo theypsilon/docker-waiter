@@ -1,10 +1,17 @@
 #!/usr/bin/env bash
 
-set -xeuo pipefail
+set -euo pipefail
 
-readonly RELEASE_TYPE=${1:-"PATCH"}
+readonly MODIFIED_FILES=$(git ls-files -m)
+
+if [[ "${MODIFIED_FILES}" != "" ]] ; then
+	echo "ERROR: Following files are in a modified status, commit them or stash them."
+	echo "${MODIFIED_FILES}"
+	exit 1
+fi
+
+
 readonly LATEST_TAG=$(git describe --tag)
-
 if ! [[ ${LATEST_TAG} =~ ([0-9]*).([0-9]*).([0-9]*) ]] ; then
 	echo "ERROR: last tag is wrong formatted"
 fi
@@ -12,22 +19,30 @@ fi
 MAJOR=${BASH_REMATCH[1]}
 MINOR=${BASH_REMATCH[2]}
 PATCH=${BASH_REMATCH[3]}
-echo $$RELEASE_TYPE
-exit
-eval $RELEASE_TYPE=$(( + 1))
+
+case "${1:---patch}" in
+	--minor)
+		echo -n "Realeasing MINOR: "
+	    MINOR=$(($MINOR + 1))
+	    ;;
+	--major)
+		echo -n "Realeasing MAJOR: "
+	    MAJOR=$(($MAJOR + 1))
+	    ;;
+	--patch)
+		echo -n "Realeasing PATCH: " 
+	    PATCH=$(($PATCH + 1))
+	    ;;
+	*)
+		echo "ERROR: Unrecognized option '${1}'"
+		echo "Usage: ${0} [--major] | [--minor] | [--patch]"
+		exit 1
+esac
 readonly CANDIDATE_VERSION="${MAJOR}.${MINOR}.${PATCH}"
 
-echo ${CANDIDATE_VERSION}
+echo "VERSION: ${CANDIDATE_VERSION}"
 
-exit
 readonly BACKUP_COMMIT=$(git rev-parse HEAD)
-
-readonly MODIFIED_FILES=$(git ls-files -m)
-if [[ "${MODIFIED_FILES}" != "" ]] ; then
-	echo "ERROR: Following files are in a modified status, commit them or stash them."
-	echo "${MODIFIED_FILES}"
-	exit 1
-fi
 
 ./build.sh
 
