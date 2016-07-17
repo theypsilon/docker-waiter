@@ -12,40 +12,35 @@ if [[ "${MODIFIED_FILES}" != "" ]] ; then
 	exit 1
 fi
 
-readonly CANDIDATE_VERSION=$(get_candidate_version "$@")
-readonly RELEASE_BRANCH=release-${CANDIDATE_VERSION}
+readonly VERSION=$(get_candidate_version "$@")
+readonly RELEASE_BRANCH=release-${VERSION}
 
-git branch -D ${RELEASE_BRANCH} || true
-git checkout HEAD -b ${RELEASE_BRANCH}
+git checkout ${BRANCH} -b ${RELEASE_BRANCH}
+
+cleanup() {
+	git checkout ${BRANCH}
+	git tag -d ${VERSION} || true
+	git branch -D ${RELEASE_BRANCH} || true
+}
+
+trap cleanup EXIT
 
 ./build.sh
 
 cp README.latest.md README.md
 
-sed -i -e "s/latest/${CANDIDATE_VERSION}/g" README.md
+sed -i -e "s/latest/${VERSION}/g" README.md
 git add README.md
-git commit -m "New version ${CANDIDATE_VERSION}" 
+git commit -m "New version ${VERSION}" 
 
-git tag -d ${CANDIDATE_VERSION} || true
-git tag ${CANDIDATE_VERSION}
+git tag -a ${VERSION} -m "Version ${VERSION}"
 
-error_handling() {
-	echo "ROLLING BACK"
-	git tag -d ${CANDIDATE_VERSION}
-	git checkout latest
-	git branch -D ${RELEASE_BRANCH}
-}
-
-trap error_handling EXIT
-
-git checkout ${CANDIDATE_VERSION}
+git checkout ${VERSION}
 
 ./scripts/tag.sh
 ./scripts/push.sh
 
-git push origin ${CANDIDATE_VERSION}
-
-trap - EXIT
+git push origin ${VERSION}
 
 git checkout latest
 git pull
