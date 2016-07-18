@@ -14,13 +14,13 @@ And in order to provide wait logic for a heterogeneous number of services, every
 
 # List of Images
 
-* **theypsilon/waiter-mysql:0.1.21**: Waits until MySQL is able to execute queries.
-* **theypsilon/waiter-rest:0.1.21**: Waits until the expected HTTP STATUS CODE is returned from a given HTTP URL
-* **theypsilon/waiter-elasticsearch:0.1.21**: Waits until Elastic Search server is up and the cluster health status is green or yellow.
+* **theypsilon/waiter-mysql:0.1.22**: Waits until MySQL is able to execute queries.
+* **theypsilon/waiter-rest:0.1.22**: Waits until the expected HTTP STATUS CODE is returned from a given HTTP URL
+* **theypsilon/waiter-elasticsearch:0.1.22**: Waits until Elastic Search server is up and the cluster health status is green or yellow.
 
 # How to use the Images
 
-### theypsilon/waiter-elasticsearch:0.1.21
+### theypsilon/waiter-elasticsearch:0.1.22
 
 Configuration of the Elastic Search Waiter can be done through the following environment variables:
 
@@ -39,14 +39,14 @@ $ docker run -it --rm --link elasticsearch_server:elasticsearch_server \
 	-e WAITER_DEBUG=false \
 	-e WAITER_ATTEMPTS=20 \
 	-e WAITER_ATTEMPT_SLEEPTIME=1 \
-	theypsilon/waiter-elasticsearch:0.1.21
+	theypsilon/waiter-elasticsearch:0.1.22
 
 [WAITER] WAITER_ATTEMPTS: 20 | WAITER_ATTEMPT_SLEEPTIME: 1
 [WAITER] ....... OK
 ```
 
 
-### theypsilon/waiter-mysql:0.1.21
+### theypsilon/waiter-mysql:0.1.22
 
 Configuration of the MySQL Waiter can be done through the following environment variables:
 
@@ -75,7 +75,7 @@ $ docker run -it --rm --link mysql_server:mysql_server \
 	-e WAITER_DEBUG=true \
 	-e WAITER_ATTEMPTS=20 \
 	-e WAITER_ATTEMPT_SLEEPTIME=1 \
-	theypsilon/waiter-mysql:0.1.21 && echo DONE!
+	theypsilon/waiter-mysql:0.1.22 && echo DONE!
 
 [WAITER] WAITER_ATTEMPTS: 20 | WAITER_ATTEMPT_SLEEPTIME: 1
 [WAITER] ...... OK
@@ -83,7 +83,7 @@ DONE!
 ```
 
 
-### theypsilon/waiter-rest:0.1.21
+### theypsilon/waiter-rest:0.1.22
 
 Configuration of the REST Waiter can be done through the following environment variables:
 
@@ -102,14 +102,14 @@ $ docker run -it --rm --link elasticsearch_server:elasticsearch_server \
 	-e WAITER_DEBUG=false \
 	-e WAITER_ATTEMPTS=20 \
 	-e WAITER_ATTEMPT_SLEEPTIME=1 \
-	theypsilon/waiter-rest:0.1.21 && echo DONE!
+	theypsilon/waiter-rest:0.1.22 && echo DONE!
 
 [WAITER] WAITER_ATTEMPTS: 20 | WAITER_ATTEMPT_SLEEPTIME: 1
 [WAITER] .. OK
 DONE!
 ```
 
-**NOTE**: Notice that checking elasticsearch by looking the http status code is not sufficient, and you should use the image '**theypsilon/waiter-elasticsearch:0.1.21**' instead to know when the elasticsearch clusters are ready.
+**NOTE**: Notice that checking elasticsearch by looking the http status code is not sufficient, and you should use the image '**theypsilon/waiter-elasticsearch:0.1.22**' instead to know when the elasticsearch clusters are ready.
 
 # Contributing
 
