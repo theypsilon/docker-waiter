@@ -2,6 +2,9 @@
 
 set -euo pipefail
 
+WAITER_ATTEMPTS=${WAITER_ATTEMPTS:-10}
+WAITER_ATTEMPT_SLEEPTIME=${WAITER_ATTEMPT_SLEEPTIME:-5}
+
 ping_script() {
 	if [[ "${WAITER_DEBUG:-false}" == "true" ]] ; then
 		source "ping.sh"
