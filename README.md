@@ -6,8 +6,8 @@ A common problem in docker, is expecting that once a cointainer is *started*, it
 
 All *waiter* images will use exactly the same [waiter script](waiter/waiter.sh) as default command that can be configured with the following environment variables:
 
-* **WAITER_ATTEMPTS** (mandatory): Number of attempts the waiter will *ping* the service. If there is no succesful ping after that given number of attempts, it means that the service is expected to never be ready for the current context, so the process will exit with error code 1.
-* **WAITER_ATTEMPT_SLEEPTIME** (mandatory): Amount of time the waiter will wait in seconds after an unsuccesful *ping* attempt. After that time, a new attempt will begin.
+* **WAITER_ATTEMPTS** (optional, default value is 10): Number of attempts the waiter will *ping* the service. If there is no succesful ping after that given number of attempts, it means that the service is expected to never be ready for the current context, so the process will exit with error code 1.
+* **WAITER_ATTEMPT_SLEEPTIME** (optional, default value is 5): Amount of time the waiter will wait in seconds after an unsuccesful *ping* attempt. After that time, a new attempt will begin.
 * **WAITER_DEBUG** (optional, default: false): If true, it will show in console the response of the *ping* command executed on attemps, otherwise it will be hidden.
 
 And in order to provide wait logic for a heterogeneous number of services, every *waiter* here provides a different definition of `ping.sh` that is useful for its correspoding service. In case you wanna check them, those are located at: `services/*/ping.sh`
