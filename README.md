@@ -37,7 +37,7 @@ $ docker run -it --rm --link elasticsearch_server:elasticsearch_server \
 	-e ELASTICSEARCH_HOST=elasticsearch_server \
 	-e ELASTICSEARCH_PORT=9200 \
 	-e WAITER_DEBUG=false \
-	-e WAITER_ATTEMPTS=20 \
+	-e WAITER_TIMEOUT=20 \
 	-e WAITER_ATTEMPT_SLEEPTIME=1 \
 	theypsilon/waiter-elasticsearch:0.1.22
 
@@ -73,7 +73,7 @@ $ docker run -it --rm --link mysql_server:mysql_server \
 	-e MYSQL_USER=test \
 	-e MYSQL_PASSWORD=test \
 	-e WAITER_DEBUG=true \
-	-e WAITER_ATTEMPTS=20 \
+	-e WAITER_TIMEOUT=20 \
 	-e WAITER_ATTEMPT_SLEEPTIME=1 \
 	theypsilon/waiter-mysql:0.1.22 && echo DONE!
 
@@ -100,7 +100,7 @@ $ docker run -it --rm --link elasticsearch_server:elasticsearch_server \
 	-e HTTP_URL=http://elasticsearch_server:9200/_cluster/health \
 	-e HTTP_STATUS_CODE=200 \
 	-e WAITER_DEBUG=false \
-	-e WAITER_ATTEMPTS=20 \
+	-e WAITER_TIMEOUT=20 \
 	-e WAITER_ATTEMPT_SLEEPTIME=1 \
 	theypsilon/waiter-rest:0.1.22 && echo DONE!
 

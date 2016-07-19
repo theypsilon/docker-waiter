@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-WAITER_ATTEMPTS=${WAITER_ATTEMPTS:-10}
+WAITER_TIMEOUT=${WAITER_TIMEOUT:-50}
 WAITER_ATTEMPT_SLEEPTIME=${WAITER_ATTEMPT_SLEEPTIME:-5}
 
 ping_script() {
@@ -13,10 +13,18 @@ ping_script() {
 	fi
 }
 
-echo "[WAITER] WAITER_ATTEMPTS: ${WAITER_ATTEMPTS} | WAITER_ATTEMPT_SLEEPTIME: ${WAITER_ATTEMPT_SLEEPTIME}"
+echo "[WAITER] WAITER_TIMEOUT: ${WAITER_TIMEOUT} | WAITER_ATTEMPT_SLEEPTIME: ${WAITER_ATTEMPT_SLEEPTIME}"
 echo -n "[WAITER] "
-for ((i=1;i<=${WAITER_ATTEMPTS};i++)) ; do
-	if ! ping_script ; then
+
+echo "false" > timeout_done
+
+(
+	sleep ${WAITER_TIMEOUT}s
+	echo "true" > timeout_done
+) &
+
+while [[ "$(cat timeout_done)" != "true" ]] ; do
+	if ! (ping_script) ; then
 		echo -n "."
 		sleep ${WAITER_ATTEMPT_SLEEPTIME}s
 	else
@@ -24,6 +32,7 @@ for ((i=1;i<=${WAITER_ATTEMPTS};i++)) ; do
 		exit 0
 	fi
 done
+
 echo
-echo "[WAITER] ERROR: No response after ${WAITER_ATTEMPTS} attempts."
+echo "[WAITER] ERROR: No response after ${WAITER_TIMEOUT} seconds."
 exit 1
