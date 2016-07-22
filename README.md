@@ -41,7 +41,7 @@ $ docker run -it --rm --link elasticsearch_server:elasticsearch_server \
 	-e WAITER_ATTEMPT_SLEEPTIME=1 \
 	theypsilon/waiter-elasticsearch:0.1.23
 
-[WAITER] WAITER_ATTEMPTS: 20 | WAITER_ATTEMPT_SLEEPTIME: 1
+[WAITER] WAITER_TIMEOUT: 20 | WAITER_ATTEMPT_SLEEPTIME: 1
 [WAITER] ....... OK
 ```
 
@@ -77,7 +77,7 @@ $ docker run -it --rm --link mysql_server:mysql_server \
 	-e WAITER_ATTEMPT_SLEEPTIME=1 \
 	theypsilon/waiter-mysql:0.1.23 && echo DONE!
 
-[WAITER] WAITER_ATTEMPTS: 20 | WAITER_ATTEMPT_SLEEPTIME: 1
+[WAITER] WAITER_TIMEOUT: 20 | WAITER_ATTEMPT_SLEEPTIME: 1
 [WAITER] ...... OK
 DONE!
 ```
@@ -104,7 +104,7 @@ $ docker run -it --rm --link elasticsearch_server:elasticsearch_server \
 	-e WAITER_ATTEMPT_SLEEPTIME=1 \
 	theypsilon/waiter-rest:0.1.23 && echo DONE!
 
-[WAITER] WAITER_ATTEMPTS: 20 | WAITER_ATTEMPT_SLEEPTIME: 1
+[WAITER] WAITER_TIMEOUT: 20 | WAITER_ATTEMPT_SLEEPTIME: 1
 [WAITER] .. OK
 DONE!
 ```
